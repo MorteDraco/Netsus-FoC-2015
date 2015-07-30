@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="shortut icon" href="images/YRSFOC_quantum.png">
+    <meta charset="utf-8">
+    <title>Netsus:Faction - QUANTUM</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+    <script>
+// This example adds a marker to indicate the position
+// of Bondi Beach in Sydney, Australia
+function initialize() {
+
+  // Create an array of styles.
+  var styles = [
+    {
+      stylers: [
+      //blue  team
+        { hue: "#0066FF" },
+        { saturation: -20 }
+      ]
+    },{
+      featureType: "road",
+      elementType: "geometry",
+      stylers: [
+        { lightness: 100 },
+        { visibility: "simplified" }
+      ]
+    },{
+      featureType: "road",
+      elementType: "labels",
+      stylers: [
+        { visibility: "off" }
+      ]
+    } c 
+  ];
+
+  // Create a new StyledMapType object, passing it the array of styles,
+  // as well as the name to be displayed on the map type control.
+  var styledMap = new google.maps.StyledMapType(styles,
+    {name: "Styled Map"});
+
+/////////////////////////////////////MARKER DATA///////////////////////////////////
+
+ // Create a map object, and include the MapTypeId to add
+  // to the map type control.
+
+  var map;
+  //images
+  var image1 = 'images/HUB_U.png';
+  var image2 = 'images/HUB_Q.png';
+  var image3 = 'images/HUB_T.png';
+  var sprite = 'images/YRSFOC_quantum.png';
+
+  var myLatlng = new google.maps.LatLng(52.478656, -1.91021);
+  var myLatlng2 = new google.maps.LatLng(52.479038, -1.910412);
+  var myLatlng3 = new google.maps.LatLng(52.478096, -1.912469);
+  var myLatlng4 = new google.maps.LatLng(50.770804, 0.281912);
+  var myLatlng5 = new google.maps.LatLng(50.769317, 0.279845);
+
+
+  var mapOptions = {
+    zoom: 20,
+    center: myLatlng,
+    disableDefaultUI: true,
+    scrollwheel: true,
+    mapTypeId:google.maps.MapTypeId.ROADMAP    
+  };
+
+  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+  if(navigator.geolocation) {
+    var markercur = new.google.maps.Marker({
+      position: new google.maps.LatLng(0, 0),
+      map: map,
+      icon: sprite
+    });
+     var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        markercur.setPosition(pos);
+
+
+  }
+// 1st
+  var marker = new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+    icon: image1
+  });
+//3nd
+   var marker2 = new google.maps.Marker({
+    position: myLatlng2,
+    map: map,
+    icon: image2
+  });
+  //3rd
+   var marker3 = new google.maps.Marker({
+    position: myLatlng3,
+    map: map,
+    icon: image3
+  });
+  //4th
+   var marker4 = new google.maps.Marker({
+    position: myLatlng4,
+    map: map,
+    icon: image3
+  });
+  //5th
+   var marker5 = new google.maps.Marker({
+    position: myLatlng5,
+    map: map,
+    icon: image3
+  });
+     
+  //cuurrent pos
+   var markercur = new google.maps.Marker({
+    position: currentLatLng,
+    map: map,
+    icon: sprite
+  });
+// To add the marker to the map, call setMap();
+//mrk 1 - ICC
+  marker.setMap(map);
+  var infowindow = new google.maps.InfoWindow({
+    content:'<a href="http://www.codewars.com/kata/5547929140907378f9000039/train/python"><IMG BORDER="0" ALIGN="center" SRC="images/ICC.png" width="500"></a>' 
+
+  })
+  google.maps.event.addListener(marker, 'click', function() {
+  infowindow.open(map,marker);
+  })
+  //mrk 2 setup -STARBUCKS
+  marker2.setMap(map);
+  var infowindow2 = new google.maps.InfoWindow({
+    content:'<a href="http://www.codewars.com/kata/multiply/train/python"><IMG BORDER="0" ALIGN="center" SRC="images/star.png" width="500"></a>' 
+  })
+  google.maps.event.addListener(marker2, 'click', function() {
+  infowindow2.open(map,marker2);
+  })
+  //mrk3 setup - sea life
+  marker3.setMap(map);
+   var infowindow3 = new google.maps.InfoWindow({
+    content:'<a href="http://www.codewars.com/kata/multiply/train/python"><IMG BORDER="0" ALIGN="center" SRC="images/sea.png" width="500"></a>' 
+  })
+  google.maps.event.addListener(marker3, 'click', function() {
+  infowindow3.open(map,marker3);
+  })
+  //mrk4 setup
+  marker4.setMap(map);
+  var infowindow4 = new google.maps.InfoWindow({
+    content:'<a href="http://www.codewars.com/kata/multiply/train/python"><IMG BORDER="0" ALIGN="center" SRC="images/CWT1.png" width="500"></a>' 
+  })
+  google.maps.event.addListener(marker4, 'click', function() {
+  infowindow4.open(map,marker4);
+  })
+  //mrk5 setup
+  marker5.setMap(map);
+  var infowindow5 = new google.maps.InfoWindow({
+    content:'<a href="http://www.codewars.com/kata/multiply/train/python"><IMG BORDER="0" ALIGN="center" SRC="images/CWT1.png" width="500"></a>' 
+  })
+  google.maps.event.addListener(marker5, 'click', function() {
+  infowindow5.open(map,marker5);
+  })
+  //current marker setup
+  makercur.setMap(map);
+ 
+//////////////////////////////////////////////////////////////////////
+  //Associate the styled map with the MapTypeId and set it to display.
+  map.mapTypes.set('map_style', styledMap);
+  map.setMapTypeId('map_style');
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+  <!-- Header -->
+      <header id="header">
+
+        <!-- Logo -->
+          <h1 id="logo"><a href="index.html">Netsus - QUANTUM</a></h1>
+              <div id='location-container'>
+                <h1 id="logo"><a href="index.html">Netsus - QUANTUM</a></h1>
+              </div>
+
+        <!-- Nav -->
+          <nav id="nav">
+            <ul>
+             
+              <li class="active"><a href="index.html">Home</a></li>
+            </ul>
+          </nav>
+
+      </header>
+      
+      <div id="map-canvas"></div>
+<!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.poptrox.min.js"></script>
+      <script src="assets/js/jquery.scrolly.min.js"></script>
+      <script src="assets/js/jquery.scrollex.min.js"></script>
+      <script src="assets/js/skel.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+      <script src="assets/js/main.js"></script>
+      <script src="assests/js/maps.js"></script>
+      <script src='js.js'></script>
+
+  </body>
+</html>
