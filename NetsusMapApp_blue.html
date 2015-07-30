@@ -51,24 +51,24 @@ function initialize() {
     {name: "Styled Map"});
 
 /////////////////////////////////////MARKER DATA///////////////////////////////////
-
-  // Create a map object, and include the MapTypeId to add
-  // to the map type control.
-  //images
+//images
   var image1 = 'images/HUB_U.png';
   var image2 = 'images/HUB_Q.png';
   var image3 = 'images/HUB_T.png';
 
-  var myLatlng = new google.maps.LatLng(52.486243, -1.890401);
-  var myLatlng2 = new google.maps.LatLng(51.507651, -0.129758);
-  var myLatlng3 = new google.maps.LatLng(51.507451, -0.128758);
+  var myLatlng = new google.maps.LatLng(52.478656, -1.91021);
+  var myLatlng2 = new google.maps.LatLng(52.479038, -1.910412);
+  var myLatlng3 = new google.maps.LatLng(52.478096, -1.912469);
   var myLatlng4 = new google.maps.LatLng(50.770804, 0.281912);
   var myLatlng5 = new google.maps.LatLng(50.769317, 0.279845);
 
   var mapOptions = {
-    zoom: 17,
+    zoom: 20,
     center: myLatlng,
-    disableDefaultUI: true
+    disableDefaultUI: true,
+    scrollwheel: false,
+    
+    mapTypeId:google.maps.MapTypeId.ROADMAP    
   }
   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 // 1st
@@ -87,7 +87,7 @@ function initialize() {
    var marker3 = new google.maps.Marker({
     position: myLatlng3,
     map: map,
-    icon: image2
+    icon: image3
   });
   //4th
    var marker4 = new google.maps.Marker({
@@ -101,44 +101,48 @@ function initialize() {
     map: map,
     icon: image3
   });
-
 // To add the marker to the map, call setMap();
+//mrk 1 - ICC
+  marker.setMap(map);
+  var infowindow = new google.maps.InfoWindow({
+    content:'<a href="http://www.codewars.com/kata/5547929140907378f9000039/train/python"><IMG BORDER="0" ALIGN="center" SRC="images/ICC.png" width="500"></a>' 
 
-marker.setMap(map);
-  var mapOptions = {
-    mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-    }
-  };
-  //mrk 2 setup
+  })
+  google.maps.event.addListener(marker, 'click', function() {
+  infowindow.open(map,marker);
+  })
+  //mrk 2 setup -STARBUCKS
   marker2.setMap(map);
-  var mapOptions = {
-    mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-    }
-  };
-  //mrk3 setup
+  var infowindow2 = new google.maps.InfoWindow({
+    content:'<a href="http://www.codewars.com/kata/multiply/train/python"><IMG BORDER="0" ALIGN="center" SRC="images/star.png" width="500"></a>' 
+  })
+  google.maps.event.addListener(marker2, 'click', function() {
+  infowindow2.open(map,marker2);
+  })
+  //mrk3 setup - sea life
   marker3.setMap(map);
-  var mapOptions = {
-    mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-    }
-  };
- //mrk3 setup
+   var infowindow3 = new google.maps.InfoWindow({
+    content:'<a href="http://www.codewars.com/kata/multiply/train/python"><IMG BORDER="0" ALIGN="center" SRC="images/sea.png" width="500"></a>' 
+  })
+  google.maps.event.addListener(marker3, 'click', function() {
+  infowindow3.open(map,marker3);
+  })
+  //mrk4 setup
   marker4.setMap(map);
-  var mapOptions = {
-    mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-    }
-  };
+  var infowindow4 = new google.maps.InfoWindow({
+    content:'<a href="http://www.codewars.com/kata/multiply/train/python"><IMG BORDER="0" ALIGN="center" SRC="images/CWT1.png" width="500"></a>' 
+  })
+  google.maps.event.addListener(marker4, 'click', function() {
+  infowindow4.open(map,marker4);
+  })
   //mrk3 setup
   marker5.setMap(map);
-  var mapOptions = {
-    mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-    }
-  };
-//////////////////////////////////////////////////////////////////////
+  var infowindow5 = new google.maps.InfoWindow({
+    content:'<a href="http://www.codewars.com/kata/multiply/train/python"><IMG BORDER="0" ALIGN="center" SRC="images/CWT1.png" width="500"></a>' 
+  })
+  google.maps.event.addListener(marker5, 'click', function() {
+  infowindow5.open(map,marker5);
+  })
   //Associate the styled map with the MapTypeId and set it to display.
   map.mapTypes.set('map_style', styledMap);
   map.setMapTypeId('map_style');
@@ -156,7 +160,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
         <!-- Nav -->
           <nav id="nav">
             <ul>
-              <li>Inventory</li>
+             
               <li class="active"><a href="index.html">Home</a></li>
             </ul>
           </nav>
