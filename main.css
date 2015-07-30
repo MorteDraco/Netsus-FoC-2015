@@ -2873,7 +2873,7 @@
 /* Intro */
 
 	#intro {
-		background: url("images/overlay.png"), url("../../images/LOGOYRS2015_2.png");
+		background: url("images/overlay.png"), url("../../images/BGBLACK.png");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, bottom center;
@@ -2883,7 +2883,7 @@
 /* One */
 
 	#one {
-		background: url("images/overlay.png"), url("../../images/NTS.jpg");
+		background: url("images/overlay.png"), url("../../images/LOGOYRS2015_2.png");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
